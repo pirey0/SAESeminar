@@ -7,6 +7,7 @@ public class CubeMovement : MonoBehaviour
     [SerializeField] float _t;
     [Range(0,3)]
     [SerializeField] float _speed = 1;
+    [SerializeField] AnimationCurve curve1;
 
     #region Graph Drawing Parameters
     [Header("Graph Drawing")]
@@ -16,30 +17,41 @@ public class CubeMovement : MonoBehaviour
     [SerializeField] bool _drawGraph;
     #endregion
 
-    #region Setup
-    private System.Func<float, float> _YFunction;
 
     private void Start()
     {
-        _YFunction = LinearFunction;
-
         if (_drawGraph)
             DrawGraph();
     }
 
-    private float LinearFunction(float x)
-    {
-        //F(x) = x
-        return x;
-    }
-    #endregion
-
     void Update()
     {
         _t += Time.deltaTime * _speed;
-        transform.position = new Vector3(_t, _t,0);
+
+        transform.position = new Vector3(XFunction(_t), YFunction(_t),0);
     }
 
+    private float XFunction(float t)
+    {
+        return t;
+    }
+
+    private float YFunction(float t)
+    {
+        return curve1.Evaluate(t);
+    }
+
+    float Clamp(float value, float min, float max)
+    {
+
+        if (value < min)
+            value = min;
+
+        if (value > max)
+            value = max;
+
+        return value;
+    }
 
 
     #region Graph Drawing
@@ -52,8 +64,8 @@ public class CubeMovement : MonoBehaviour
 
         for (int i = 0; i < _graphPointCount; i++)
         {
-            float x = _graphEndX * (((float)i) / _graphPointCount);
-            positions[i] = new Vector3(x, _YFunction(x), 0);
+            float t = _graphEndX * (((float)i) / _graphPointCount);
+            positions[i] = new Vector3(XFunction(t), YFunction(t), 0);
         }
 
         _lineRenderer.positionCount = _graphPointCount;
