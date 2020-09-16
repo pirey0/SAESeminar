@@ -29,13 +29,13 @@ namespace PracticalLessons.GPR4100
             Console.ReadLine();
 
             Console.WriteLine("Task 9:");
-            int result = Task9(4);
+            int result = Factorial(4);
             Console.WriteLine(result);
             Console.ReadLine();
 
             Console.WriteLine("Task 10:");
-            int[] primes = { 2,3,5,7,11,13};
-            List<int> results = Task10(primes);
+            int[] primes = { 2, 3, 5 };
+            List<int> results = Factorial(primes);
             foreach (var r in results)
             {
                 Console.WriteLine(r);
@@ -60,50 +60,77 @@ namespace PracticalLessons.GPR4100
         private static void Task1()
         {
             Console.WriteLine("Task 1:");
-            Console.WriteLine(-5 + 3); 
+            Console.WriteLine(-5 + 3);
+            // -2  int
         }
+
 
         private static void Task2()
         {
             Console.WriteLine("Task 2:");
             Console.WriteLine(-5f + 3f);
-        }
-
-        private static void Task4()
-        {
-            Console.WriteLine("Task 3:");
-            Console.WriteLine(3 / 4);
+            // -2 float
         }
 
         private static void Task3()
         {
+            Console.WriteLine("Task 3:");
+            Console.WriteLine(3 / 4);
+            // 0 int
+        }
+
+        private static void Task4()
+        {
             Console.WriteLine("Task 4:");
-            Console.WriteLine(0.33333f * 3 == 1);
+            Console.WriteLine(0.3333 * 3 == 1);
+            // false bool
+
         }
 
         private static void Task5()
         {
             Console.WriteLine("Task 5:");
             Console.WriteLine(2 / 4 == 3 / 4);
+            // 2/4 == 3/4
+            // 0 == 0
+            // True
         }
+
 
         private static void Task6()
         {
             Console.WriteLine("Task 6:");
             Console.WriteLine("35" + 2);
+
+            // "35" + "2"
+            // "352" String
         }
 
         private static void Task7()
         {
             Console.WriteLine("Task 7:");
-            Console.WriteLine(20 % 2 == 0 || 20 % 2 != 0);
+
+            // 3/4 = 0
+            // 3%4 = 3 
+            // 2%4 = 2
+            // 5%4 = 1
+
+            int a = 20 % 2;
+            Console.WriteLine(a == 0 || a != 0);
+            // True bool
         }
 
         private static void Task8()
         {
             Console.WriteLine("Task 8:");
 
-            if ((!(12 - 15 > 0)))
+            bool condition = !(12 - 15 > 0);
+            //!(12 - 15 > 0)
+            //!(-3 > 0)
+            //!(False)
+            //True
+
+            if (condition)
             {
                 string s = "Hello!";
             }
@@ -113,26 +140,32 @@ namespace PracticalLessons.GPR4100
             }
         }
 
-        //to rename together in class
-        private static int Task9(int input)
+        private static int Factorial(int input)
         {
             int result = 1;
-            for(int i = 1; i <=input; i++)
+            for (int i = 1; i <= input; i++)
             {
-                result *= i;
+                result *= i; // same as result = result * i;
             }
 
             return result;
-        }
 
-        //to rename together in class
-        private static List<int> Task10(int[] inputs)
+            //returns factorial
+        }
+        //3! = 1*2*3
+        //4! = 1*2*3*4
+        //5! = 1*2*3*4*5
+
+
+        //parameter int[] = {3}
+        // In: {2,5} Out: {2!, 5!}
+        private static List<int> Factorial(int[] parameter)
         {
             List<int> outputs = new List<int>();
 
-            foreach (var input in inputs)
+            foreach (var input in parameter)
             {
-                outputs.Add(Task9(input));
+                outputs.Add(Factorial(input));
             }
 
             return outputs;
@@ -147,30 +180,82 @@ namespace PracticalLessons.GPR4100
             return TaskFinal(x - 1) + TaskFinal(x - 2);
         }
 
-
         private static void TaskExtra()
         {
             Console.WriteLine("Extra: ");
-            Console.WriteLine((Task9(Task9(3))).ToString() + 10);
+            Console.WriteLine((Factorial(Factorial(3))).ToString() + 10);
             Console.ReadLine();
         }
+
+        //Tasks:
+        /*
+         * Make a function that will return a greeting statement that uses an input; your program should return,
+         * Greeting("Luca") // returns "Hello, Luca how are you doing today?".
+         */
+
+        private static string Greeting(string name)
+        {
+            return "Hello, " + name + " how are you doing today?";
+            
+            //other valid results
+            return $"Hello, {name} how are you doing today?";
+            return string.Format("Hello, {0} how are you doing today?", name);
+
+            string result = "Hello, " + name + " how are you doing today?";
+            return result;
+        }
+
+        /* Write a function called RepeatString which repeats the given string src exactly count times.
+           RepeatString(6, "I") // "IIIIII"
+        */
+
+        private static string RepeatString(int times, string src)
+        {
+            string result = "";
+            for (int i = 0; i < times; i++)
+            {
+                result += src;
+            }
+            return result;
+        }
+
+        /* Your task is to create function IsDividedBy to check if an integer number is divisible by each out of two arguments.
+        * IsDevidedBy(10, 2 ,-5) // True (because 10 is both divisible by 2 and by -5;
+        */
+
+        private static bool IsDividedBy(int i1, int divisor1, int divisor2)
+        {
+            return (i1 % divisor1 == 0 && i1 % divisor2 == 0);
+        }
+
+        /*
+        * Get Planet Name By ID
+        *  GetPlanetName(3); // Earth
+        */
+
+        private static string GetPlanetName(int planetID)
+        {
+            switch (planetID)
+            {
+                case 1:
+                    return "Mercury";
+                case 2:
+                    return "Venus";
+                case 3:
+                    return "Earth";
+                case 4:
+                    return "Mars";
+                case 5:
+                    return "Jupiter";
+                case 6:
+                    return "Saturn";
+                case 7:
+                    return "Uranus";
+                case 8:
+                    return "Nepture";
+            }
+
+            return "";
+        }
     }
-
-
-    //Possible task Examples:
-    /*
-     * Make a function that will return a greeting statement that uses an input; your program should return,
-     *   Greeting("Luca") // "Hello, Luca how are you doing today?".
-     * 
-     * Write a function called repeat_str which repeats the given string src exactly count times.
-        repeatStr(6, "I") // "IIIIII"
-     * 
-     * Your task is to create function IsDivideBy to check if an integer number is divisible by each out of two arguments.
-     *  IsDevidedBy(10, 2 ,-5) // True (because 10 is both divisible by 2 and by -5;
-     * 
-     * Get Planet Name By ID
-     *  getPlanetName(3); // Earth
-     *  
-     *  
-     */
 }
