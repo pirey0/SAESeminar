@@ -235,27 +235,12 @@ namespace PracticalLessons.GPR4100
 
         private static string GetPlanetName(int planetID)
         {
-            switch (planetID)
-            {
-                case 1:
-                    return "Mercury";
-                case 2:
-                    return "Venus";
-                case 3:
-                    return "Earth";
-                case 4:
-                    return "Mars";
-                case 5:
-                    return "Jupiter";
-                case 6:
-                    return "Saturn";
-                case 7:
-                    return "Uranus";
-                case 8:
-                    return "Nepture";
-            }
+            string[] planetNames = { "Mercury", "Venus", "Earth", "Mars", "Jupiter", "Saturn", "Uranus", "Neptune" };
 
-            return "";
+            if(planetID > 0 && planetID < 8)
+                return planetNames[planetID];
+            else
+                return "";
         }
     }
 }
