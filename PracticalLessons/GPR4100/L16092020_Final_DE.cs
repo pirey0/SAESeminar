@@ -9,6 +9,57 @@ namespace PracticalLessons.GPR4100
 {
     public class Lesson1
     {
+        public static void Main()
+        {
+
+            Console.ReadLine();
+            Task1();
+            Console.ReadLine();
+            Task2();
+            Console.ReadLine();
+            Task3();
+            Console.ReadLine();
+            Task4();
+            Console.ReadLine();
+            Task5();
+            Console.ReadLine();
+            Task6();
+            Console.ReadLine();
+            Task7();
+            Console.ReadLine();
+            Task8();
+            Console.ReadLine();
+
+            Console.WriteLine("Task 9:");
+            int result = Task9(4);
+            Console.WriteLine(result);
+            Console.ReadLine();
+
+            Console.WriteLine("Task 10:");
+            int[] primes = { 2, 3, 5 };
+            List<int> results = Task10(primes);
+            foreach (var r in results)
+            {
+                Console.WriteLine(r);
+            }
+
+            Console.ReadLine();
+
+
+            Console.WriteLine("Final Task: ");
+            string outputString = "";
+            for (int i = 0; i < 10; i++)
+            {
+                outputString += TaskFinal(i) + " ";
+            }
+            Console.WriteLine(outputString);
+
+            Console.ReadLine();
+            TaskExtra();
+        }
+
+
+        #region GameTest
         //Funktion F(x) = x
         // y = x
 
@@ -18,9 +69,7 @@ namespace PracticalLessons.GPR4100
             return x * x;
         }
 
-        //Funktion oder Methode
-        //Eine Funktion namens "Main" die nichts zurück gibt und keine parameter hat
-        public static void Main()
+        public static void RunGame()
         {
             float xKoordinate = 0;
             float yKoordinate = 0;
@@ -110,10 +159,12 @@ namespace PracticalLessons.GPR4100
             return x < 20 && y < 20;
         }
 
-        private static void Task1( int x)
+        #endregion
+
+        private static void Task1()
         {
             Console.WriteLine("Task 1:");
-            Console.WriteLine(x + 3); 
+            Console.WriteLine(-5 + 3); 
         }
 
         //Task 1:
@@ -219,9 +270,21 @@ namespace PracticalLessons.GPR4100
 
             return result;
         }
+
+
         // Was ist Task9(4)?
         //
         // F(x) -> 
+
+        //Simples Programm mit Verzweigungen, Rechenoperationen. Welche Zahl ist größer? Taschenrechner
+        // Welche Zahl ist größer?
+        //Taschenrechner + - * / > < >= <=
+        //Task 9 
+        // Summe aller kleinen
+        // Factorial
+
+        //try catch
+        
 
         //to rename together in class
         private static List<int> Task10(int[] inputs)

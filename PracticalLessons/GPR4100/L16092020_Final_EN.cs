@@ -10,6 +10,13 @@ namespace PracticalLessons.GPR4100
     {
         public static void Main()
         {
+            int f  = Fibonacci(1000);
+
+            Console.WriteLine(f);
+
+            Console.ReadLine();
+            return;
+
             Console.ReadLine();
             Task1();
             Console.ReadLine();
@@ -48,7 +55,7 @@ namespace PracticalLessons.GPR4100
             string outputString = "";
             for (int i = 0; i < 10; i++)
             {
-                outputString += TaskFinal(i) + " ";
+                outputString += Fibonacci(i) + " ";
             }
             Console.WriteLine(outputString);
 
@@ -172,13 +179,15 @@ namespace PracticalLessons.GPR4100
         }
 
         //to rename together in class
-        private static int TaskFinal(int x)
+        private static int Fibonacci(int x)
         {
             if (x <= 1)
                 return 1;
 
-            return TaskFinal(x - 1) + TaskFinal(x - 2);
+            return Fibonacci(x - 1) + Fibonacci(x - 2);
         }
+
+
 
         private static void TaskExtra()
         {
