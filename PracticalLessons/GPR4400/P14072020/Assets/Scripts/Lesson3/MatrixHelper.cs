@@ -69,6 +69,42 @@ public class MatrixHelper
         return new Vector3(m[0, 3], m[1, 3], m[2, 3]);
     }
 
+    public static Vector3 MultiplyPoint(Matrix4x4 matrix, Vector3 point)
+    {
+        Vector3 res = new Vector3();
+
+        res.x = matrix[0, 0] * point.x + matrix[0, 1] * point.y + matrix[0, 2] * point.z + matrix[0, 3];
+        res.y = matrix[1, 0] * point.x + matrix[1, 1] * point.y + matrix[1, 2] * point.z + matrix[1,3];
+        res.z = matrix[2, 0] * point.x + matrix[2, 1] * point.y + matrix[2, 2] * point.z + matrix[2,3];
+        float num = 1 / (matrix[3,0]* point.x + matrix[3,1]*point.y + matrix[3,2] * point.z + matrix[3,3]);
+        return res*num;
+    }
+
+    public static Vector3 MultiplyVector(Matrix4x4 matrix, Vector3 vector)
+    {
+        Vector3 res = new Vector3();
+
+        res.x = matrix[0, 0] * vector.x + matrix[0, 1] * vector.y + matrix[0, 2] * vector.z;
+        res.y = matrix[1, 0] * vector.x + matrix[1, 1] * vector.y + matrix[1, 2] * vector.z;
+        res.z = matrix[2, 0] * vector.x + matrix[2, 1] * vector.y + matrix[2, 2] * vector.z;
+        return res;
+    }
+
+    public static Vector3 GetXVector(Matrix4x4 matrix)
+    {
+        return MultiplyVector(matrix, new Vector3(1, 0, 0));
+    }
+
+    public static Vector3 GetYVector(Matrix4x4 matrix)
+    {
+        return MultiplyVector(matrix, new Vector3(0, 1, 0));
+    }
+
+    public static Vector3 GetZVector(Matrix4x4 matrix)
+    {
+        return MultiplyVector(matrix, new Vector3(0, 0, 1));
+    }
+
     public static Vector3 GetScale(Matrix4x4 m)
     {
         var vx = m.GetColumn(0);
