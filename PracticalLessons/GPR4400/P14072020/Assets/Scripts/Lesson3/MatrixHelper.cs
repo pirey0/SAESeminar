@@ -66,7 +66,7 @@ public class MatrixHelper
 
     public static Vector3 GetPosition(Matrix4x4 m)
     {
-        return new Vector3(m[0, 3], m[1, 3], m[2, 3]);
+        return MultiplyPoint(m, Vector3.zero);
     }
 
     public static Vector3 MultiplyPoint(Matrix4x4 matrix, Vector3 point)
@@ -75,7 +75,7 @@ public class MatrixHelper
 
         res.x = matrix[0, 0] * point.x + matrix[0, 1] * point.y + matrix[0, 2] * point.z + matrix[0, 3];
         res.y = matrix[1, 0] * point.x + matrix[1, 1] * point.y + matrix[1, 2] * point.z + matrix[1,3];
-        res.z = matrix[2, 0] * point.x + matrix[2, 1] * point.y + matrix[2, 2] * point.z + matrix[2,3];
+        res.z = matrix[2, 0] * point.x + matrix[2, 1] * point.y + matrix[2, 2] * point.z + matrix[2,3]; 
         float num = 1 / (matrix[3,0]* point.x + matrix[3,1]*point.y + matrix[3,2] * point.z + matrix[3,3]);
         return res*num;
     }
