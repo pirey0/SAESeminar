@@ -234,7 +234,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 661972669}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8190b4698cf9ea24c8ed87711df2b5ad, type: 3}
+  m_Script: {fileID: 11500000, guid: 17a0da7929fed5e40bdca069b0dfb50a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   translation: {x: 0, y: 0, z: 0}
@@ -243,7 +243,7 @@ MonoBehaviour:
   drawGrid: 1
   drawGridCount: 2
   drawGridStepSize: 1
-  setManually: 1
+  setManually: 0
   matrix:
     e00: 1
     e01: 0
@@ -528,15 +528,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1374888408}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a37b7157a94955e4faaf554bcbb59880, type: 3}
+  m_Script: {fileID: 11500000, guid: 3f026ea0790417046b2cd54dfebd8098, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 3}
+  mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
   matrixGreen:
     e00: 1
     e01: 0
     e02: 0
-    e03: 0
+    e03: 1
     e10: 0
     e11: 1
     e12: 0
@@ -553,7 +553,7 @@ MonoBehaviour:
     e00: 1
     e01: 0
     e02: 0
-    e03: 1.5
+    e03: 0
     e10: 0
     e11: 1
     e12: 0
