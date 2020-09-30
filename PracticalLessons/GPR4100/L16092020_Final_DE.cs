@@ -11,6 +11,12 @@ namespace PracticalLessons.GPR4100
     {
         public static void Main()
         {
+            string greeting = Greeting("Luca");
+            Console.WriteLine(greeting);
+
+            Console.ReadLine();
+            TaskExtra();
+            Console.ReadLine();
 
             Console.ReadLine();
             Task1();
@@ -31,13 +37,13 @@ namespace PracticalLessons.GPR4100
             Console.ReadLine();
 
             Console.WriteLine("Task 9:");
-            int result = Task9(4);
+            int result = Factorial(4);
             Console.WriteLine(result);
             Console.ReadLine();
 
             Console.WriteLine("Task 10:");
             int[] primes = { 2, 3, 5 };
-            List<int> results = Task10(primes);
+            List<int> results = Factorial(primes);
             foreach (var r in results)
             {
                 Console.WriteLine(r);
@@ -86,7 +92,7 @@ namespace PracticalLessons.GPR4100
                     Console.Clear();
                     Console.WriteLine("Game Over");
                     Console.ReadKey();
-                }      
+                }
             }
 
         }
@@ -164,7 +170,7 @@ namespace PracticalLessons.GPR4100
         private static void Task1()
         {
             Console.WriteLine("Task 1:");
-            Console.WriteLine(-5 + 3); 
+            Console.WriteLine(-5 + 3);
         }
 
         //Task 1:
@@ -259,11 +265,12 @@ namespace PracticalLessons.GPR4100
             // Task 8:
         }
 
+
         //to rename together in class
-        private static int Task9(int input)
+        private static int Factorial(int input)
         {
             int result = 1;
-            for(int i = 1; i <=input; i++)
+            for (int i = 1; i <= input; i++)
             {
                 result *= i;
             }
@@ -284,16 +291,15 @@ namespace PracticalLessons.GPR4100
         // Factorial
 
         //try catch
-        
 
         //to rename together in class
-        private static List<int> Task10(int[] inputs)
+        private static List<int> Factorial(int[] inputs)
         {
             List<int> outputs = new List<int>();
 
             foreach (var input in inputs)
             {
-                outputs.Add(Task9(input));
+                outputs.Add(Factorial(input));
             }
 
             return outputs;
@@ -312,23 +318,73 @@ namespace PracticalLessons.GPR4100
         private static void TaskExtra()
         {
             Console.WriteLine("Extra: ");
-            Console.WriteLine((Task9(Task9(3))).ToString() + 10);
+            int[] array = new int[20];
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                int factorial = Factorial(i);
+
+                if (factorial > 0)
+                {
+                    array[i] = factorial;
+                }
+                else
+                {
+                    array[i] = -1;
+                }
+            }
+
+            Console.WriteLine((Factorial(Factorial(3))).ToString() + ArrayToString(array));
             Console.ReadLine();
         }
+
+        private static string ArrayToString(int[] array)
+        {
+            string result = "(";
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                result += array[i].ToString() + ", ";
+            }
+
+            result += ")";
+
+            return result;
+        }
+
+        private static string Greeting(string name)
+        {
+            return "Hallo, " + name + " wie geht es dir?";
+        }
+
+        private static string RepeatString(string input, int repeatCount)
+        {
+            string result = "";
+
+            for (int i = 0; i < repeatCount; i++)
+            {
+                result = result + input;
+            }
+            return result;
+        }
+
     }
 
     //Possible task Examples:
-    /*
-     * Make a function that will return a greeting statement that uses an input; your program should return,
-     *   Greeting("Luca") // "Hello, Luca how are you doing today?".
+    /* Schreibe eine Methode die einen Gruß zurück gibt und einen Namen als parameter nimmt.
+     * Beispiel:
+     * Greeting("Luca") // "Hallo, Luca wie geht es dir?"
      * 
-     * Write a function called repeat_str which repeats the given string src exactly count times.
-        repeatStr(6, "I") // "IIIIII"
+     * Screibe eine Methode namens "RepeatString" die einen gegebenen string x mal wiederholt.
+     * Beispiel:
+     * RepeatString("I", 6) //"IIIIII"
+     * RepeatString("Hallo", 3) //"HalloHalloHallo"
      * 
      * Your task is to create function IsDivideBy to check if an integer number is divisible by each out of two arguments.
-     *  IsDevidedBy(10, 2 ,-5) // True (because 10 is both divisible by 2 and by -5;
+     * IsDevidedBy(10, 2 ,-5) // True (because 10 is both divisible by 2 and by -5;
      * 
      * Get Planet Name By ID
-     *  getPlanetName(3); // Earth
+     * GetPlanetName(3); // Earth
+     *  
      */
 }
