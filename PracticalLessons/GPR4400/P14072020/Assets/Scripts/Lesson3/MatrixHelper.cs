@@ -4,16 +4,16 @@ using UnityEngine;
 
 
 //Pretty much everything one might ever need can actually be found here: https://referencesource.microsoft.com/#System.Numerics/System/Numerics/Matrix4x4.cs
-public class MatrixHelper 
+public static class MatrixHelper 
 {
-
+    
     public static Matrix4x4 GetTranslationMatrix(Vector3 position)
     {
         return new Matrix4x4(new Vector4(1, 0, 0, 0),
                              new Vector4(0, 1, 0, 0),
                              new Vector4(0, 0, 1, 0),
                              new Vector4(position.x, position.y, position.z, 1));
-        
+     
     }
 
     public static Matrix4x4 GetRotationMatrix(Vector3 eulerAngles, bool inRadians = false)
