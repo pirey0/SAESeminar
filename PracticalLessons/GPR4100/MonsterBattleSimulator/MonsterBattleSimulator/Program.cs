@@ -10,12 +10,46 @@ namespace MonsterBattleSimulator
     {
         static void Main(string[] args)
         {
-            Monster m1 =  GetMonsterFromUser();
+            Monster monster1 = GetMonsterFromUser();
 
             Console.WriteLine("Monster 1 done! Now defining monster 2..");
-            Monster m2 = GetMonsterFromUser(); 
-            Console.ReadLine();
+            Monster monster2 = GetMonsterFromUser();
 
+            FightFor(1000, monster1, monster2);
+
+            if (monster1.IsAlive())
+            {
+                Console.WriteLine("Mosnter 1 Won!");
+            }
+            else if (monster2.IsAlive())
+            {
+                Console.WriteLine("Monster 2 Won!");
+            }
+            else
+            {
+                Console.WriteLine("Draw!");
+            }
+
+            Console.ReadLine();
+        }
+
+        private static void FightFor(int maxTurns, Monster m1, Monster m2)
+        {
+            for (int i = 0; m1.IsAlive() && m2.IsAlive() && i < maxTurns; i++)
+            {
+                if (m1.Speed > m2.Speed)
+                {
+                    m1.Attack(m2);
+                    if (m2.IsAlive())
+                        m2.Attack(m1);
+                }
+                else
+                {
+                    m2.Attack(m1);
+                    if (m1.IsAlive())
+                        m1.Attack(m2);
+                }
+            }
         }
 
         private static Monster GetMonsterFromUser()

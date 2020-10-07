@@ -26,6 +26,10 @@ namespace MonsterBattleSimulator
             target.Health -= damage;
         }
 
+        public bool IsAlive()
+        {
+            return Health > 0;
+        }
 
 
     }
