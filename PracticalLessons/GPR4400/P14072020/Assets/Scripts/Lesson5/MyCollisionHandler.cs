@@ -14,7 +14,7 @@ public class MyCollisionHandler : MonoBehaviour
 
     private void FixedUpdate()
     {
-
+        //iterate through every possible collider pair and check (and then resolve) collision
         for (int i1 = 0; i1 < activeColliders.Length; i1++)
         {
             MyCollider c1 = activeColliders[i1];
@@ -48,7 +48,6 @@ public class MyCollisionHandler : MonoBehaviour
         MyRigidbody r1 = c1.Rigidbody;
         MyRigidbody r2 = c2.Rigidbody;
 
-
         if (r1 != null && r2 != null)
         {
             Vector3 difference = c2.Center - c1.Center;
@@ -60,7 +59,7 @@ public class MyCollisionHandler : MonoBehaviour
             r1.Velocity += normalVelocity; //adapt force
             r2.Velocity -= normalVelocity;
 
-            c2.Center = c1.Center + normal * (c1.Radius + c2.Radius); //separate by force
+            c2.Center = c1.Center + normal * (c1.Radius + c2.Radius); //separate by force, push c2 away from c1
         }
         else
         {
@@ -70,7 +69,6 @@ public class MyCollisionHandler : MonoBehaviour
 
     private bool CheckForIntersectionBetween(MyCollider c1, MyCollider c2)
     {
-
         if (c1 is MySphereCollider && c2 is MySphereCollider)
         {
             return CheckForIntersectionBetweenSpherers((MySphereCollider)c1, (MySphereCollider)c2);
