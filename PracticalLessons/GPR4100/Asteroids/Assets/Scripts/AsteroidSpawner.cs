@@ -7,25 +7,27 @@ public class AsteroidSpawner : MonoBehaviour
 
     [SerializeField] private GameObject _asteroidPrefab;
 
-    [SerializeField] private float _delayBetweenSpawn;
 
-    [SerializeField] private float _spawnRange = 10;
+    [SerializeField] float _amountOnStart;
+
+    [Range(0,6)]
+    [SerializeField] float _safeRangeAroundOrigin;
 
     private float _timer = 1;
 
-    private void Update()
+    private void Start()
     {
-        if(_timer <= 0)
+        Camera camera = Camera.main;
+        float halfHeight = camera.orthographicSize;
+        float halfWidth = halfHeight * ((float)Screen.width / Screen.height);
+      
+        for (int i = 0; i < _amountOnStart; i++)
         {
-            //spawn asteroid
-            GameObject spawnedObject = Instantiate(_asteroidPrefab);
-            spawnedObject.transform.position = Random.insideUnitCircle * _spawnRange;
-
-            _timer = _delayBetweenSpawn;
-        }
-        else
-        {
-            _timer -= Time.deltaTime;
+            GameObject newAsteroid = Instantiate(_asteroidPrefab);
+            while(newAsteroid.transform.position.magnitude < _safeRangeAroundOrigin)
+            {
+                newAsteroid.transform.position = new Vector3(Random.Range(-halfWidth, halfWidth), Random.Range(-halfHeight, halfHeight));
+            }
         }
     }
 }
