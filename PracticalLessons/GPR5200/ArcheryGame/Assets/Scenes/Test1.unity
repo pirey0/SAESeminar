@@ -215,7 +215,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 149344025}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 831815ebc9615da48a68e911330c933e, type: 3}
+  m_Script: {fileID: 11500000, guid: 2ac70344ee1e13446b9548b9d16cdbcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &149344030
@@ -324,7 +324,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 176865668}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 831815ebc9615da48a68e911330c933e, type: 3}
+  m_Script: {fileID: 11500000, guid: 2ac70344ee1e13446b9548b9d16cdbcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &176865673
@@ -525,7 +525,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 275061859}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 831815ebc9615da48a68e911330c933e, type: 3}
+  m_Script: {fileID: 11500000, guid: 2ac70344ee1e13446b9548b9d16cdbcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &275061864
@@ -634,7 +634,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 782813761}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 831815ebc9615da48a68e911330c933e, type: 3}
+  m_Script: {fileID: 11500000, guid: 2ac70344ee1e13446b9548b9d16cdbcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &782813766
@@ -839,7 +839,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1167720191}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 831815ebc9615da48a68e911330c933e, type: 3}
+  m_Script: {fileID: 11500000, guid: 2ac70344ee1e13446b9548b9d16cdbcb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &1167720196
@@ -856,6 +856,52 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1510004717
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1510004718}
+  - component: {fileID: 1510004719}
+  m_Layer: 0
+  m_Name: OnFireDefinition
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1510004718
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510004717}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.34, y: 1, z: 16.93}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1510004719
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510004717}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5236e5211215224ba62cccc8e97fa4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  effectName: OnFireParticles
+  objectToSpawn: {fileID: 9065475143882154131, guid: 9df4aa0cc93675347bb7213ec8b13264, type: 3}
+  lifeTime: 5
 --- !u!1001 &6613231773930836972
 PrefabInstance:
   m_ObjectHideFlags: 0
