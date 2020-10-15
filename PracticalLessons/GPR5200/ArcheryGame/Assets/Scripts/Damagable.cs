@@ -7,6 +7,12 @@ public interface IDamagable
     TakeDamageResult TakeDamage(float damageAmount);
 }
 
+public interface IEffectedDamagable : IDamagable
+{
+    bool IgnoresEffect(string effectName);
+}
+
+
 public enum TakeDamageResult
 {
     Normal, 
