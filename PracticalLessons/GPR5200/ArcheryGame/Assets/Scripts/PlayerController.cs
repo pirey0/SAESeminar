@@ -39,7 +39,12 @@ public class PlayerController : MonoBehaviour
         float mouseX = Input.GetAxis("Mouse X");
         float mouseY = Input.GetAxis("Mouse Y");
 
-        var input = horizontal * transform.right + vertical * transform.forward;
+
+        Vector3 camForward = camera.transform.forward;
+        camForward.y = 0;
+        Vector3 camRight = camera.transform.right;
+        camRight.y = 0;
+        var input = horizontal * camRight + vertical * camForward;
         controller.SimpleMove(input.normalized * speed);
 
         var angles = camera.transform.eulerAngles;
