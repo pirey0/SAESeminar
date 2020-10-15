@@ -5,16 +5,19 @@ using UnityEngine;
 public class Arrow : MonoBehaviour
 {
     [SerializeField] float damage = 10;
+    [SerializeField] AnimationCurve followDirectionCurve;
+    [SerializeField] string[] effects;
 
     Rigidbody _rigidbody;
     private void Start()
     {
-       _rigidbody = GetComponent<Rigidbody>();
+        _rigidbody = GetComponent<Rigidbody>();
     }
 
     private void Update()
     {
-        transform.forward = _rigidbody.velocity;
+        float strength = followDirectionCurve.Evaluate(_rigidbody.velocity.magnitude);
+         transform.forward =Vector3.Lerp(transform.forward, _rigidbody.velocity, strength * Time.deltaTime);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -22,11 +25,27 @@ public class Arrow : MonoBehaviour
         IDamagable damagable = collision.collider.GetComponent<IDamagable>();
         if (damagable != null)
         {
-            var result = damagable.TakeDamage(damage);
-
-            if (result == TakeDamageResult.Destroy)
+            if(damage > 0)
             {
-                Destroy(gameObject);
+                var result = damagable.TakeDamage(damage);
+
+                if (result == TakeDamageResult.Destroy)
+                {
+                    Destroy(gameObject);
+                }
+            }
+
+            IEffectedDamagable effectedDamagable = damagable as IEffectedDamagable;
+            if(effectedDamagable != null)
+            {
+                EffectParams parameters = new EffectParams(collision.gameObject, effectedDamagable);
+                foreach (var effect in effects)
+                {
+                    if (!effectedDamagable.IgnoresEffect(effect))
+                    {
+                        EffectHandler.Instance.ApplyEffect(effect, parameters);
+                    }
+                }
             }
         }
     }
