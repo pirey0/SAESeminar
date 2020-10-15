@@ -382,6 +382,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6613231775219118350}
   - component: {fileID: 6613231775219118344}
+  - component: {fileID: 9186227076380541875}
   - component: {fileID: 6613231775219118349}
   - component: {fileID: 6613231775219118348}
   - component: {fileID: 6613231775219118351}
@@ -423,10 +424,23 @@ MonoBehaviour:
   speed: 5
   mouseXSpeed: 3
   mouseYSpeed: 3
+--- !u!114 &9186227076380541875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6613231775219118386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d00fbcbc6bd89ba44a010d7e22c6c812, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
   arrowPrefab: {fileID: 236104856626477055, guid: fdbd0bb58b9404144b8469d5b0fe0119, type: 3}
   arrowSpawnTransform: {fileID: 2111228985}
   previewArrow: {fileID: 6377162353666704730}
   arrowVelocityPerDrawSecond: 10
+  minDrawTime: 0.6
   maxDrawTime: 3
   drawMovementPerSecond: 0.3
 --- !u!33 &6613231775219118349

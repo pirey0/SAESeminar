@@ -902,6 +902,7 @@ MonoBehaviour:
   effectName: OnFireParticles
   objectToSpawn: {fileID: 9065475143882154131, guid: 9df4aa0cc93675347bb7213ec8b13264, type: 3}
   lifeTime: 5
+  oriented: 0
 --- !u!1001 &6613231773930836972
 PrefabInstance:
   m_ObjectHideFlags: 0

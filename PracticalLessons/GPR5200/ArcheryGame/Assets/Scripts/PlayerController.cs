@@ -6,30 +6,20 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] float speed;
     [SerializeField] float mouseXSpeed = 3, mouseYSpeed = 3;
-    [SerializeField] GameObject arrowPrefab;
-    [SerializeField] Transform arrowSpawnTransform;
-    [SerializeField] Transform previewArrow;
-    [SerializeField] float arrowVelocityPerDrawSecond;
-    [SerializeField] float maxDrawTime;
-    [SerializeField] float drawMovementPerSecond;
 
     CharacterController controller;
     Camera camera;
-    float bowDrawTime = 0;
 
     private void Start()
     {
         controller = GetComponent<CharacterController>();
         camera = Camera.main;
         Cursor.lockState = CursorLockMode.Locked;
-        
     }
 
     private void Update()
     {
         MovementUpdate();
-        BowUpdate();
-        ArrowPreviewUpdate();
     }
 
     private void MovementUpdate()
@@ -56,45 +46,4 @@ public class PlayerController : MonoBehaviour
         camera.transform.eulerAngles = angles;
     }
 
-    private void BowUpdate()
-    {
-        bool mouseDown = Input.GetMouseButton(0);
-
-        if (mouseDown)
-        {
-            bowDrawTime += Time.deltaTime;
-        }
-        else
-        {
-            if (bowDrawTime > 0)
-            {
-                var arrow = Instantiate(arrowPrefab, GetArrowPositionAtDrawTime(bowDrawTime), arrowSpawnTransform.rotation);
-                var rigidbody = arrow.GetComponent<Rigidbody>();
-
-                if (rigidbody)
-                {
-                    rigidbody.velocity = (Mathf.Min(maxDrawTime, bowDrawTime) * arrowVelocityPerDrawSecond * arrowSpawnTransform.forward);
-                }
-                bowDrawTime = 0;
-            }
-        }
-    }
-
-    private void ArrowPreviewUpdate()
-    {
-        if(bowDrawTime <= 0)
-        {
-            previewArrow.gameObject.SetActive(false);
-        }
-        else
-        {
-            previewArrow.gameObject.SetActive(true);
-            previewArrow.position = GetArrowPositionAtDrawTime(bowDrawTime);
-        }
-    }
-
-    private Vector3 GetArrowPositionAtDrawTime(float t)
-    {
-        return arrowSpawnTransform.position + arrowSpawnTransform.forward * (maxDrawTime - Mathf.Min(maxDrawTime, t)) * drawMovementPerSecond;
-    }
 }
