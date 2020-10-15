@@ -7,11 +7,14 @@ public class Arrow : MonoBehaviour
     [SerializeField] float damage = 10;
     [SerializeField] AnimationCurve followDirectionCurve;
     [SerializeField] string[] effects;
+    [SerializeField] float lifeTime;
 
     Rigidbody _rigidbody;
     private void Start()
     {
         _rigidbody = GetComponent<Rigidbody>();
+        if (lifeTime > 0)
+            Destroy(gameObject, lifeTime);
     }
 
     private void Update()
