@@ -8,6 +8,7 @@ public class MyRigidbody : MonoBehaviour
     [SerializeField] float _mass = 1;
 
     [SerializeField] private Vector3 _velocity;
+    [SerializeField] private Vector3 _angularVelocity;
 
     public float Mass { get => _mass; }
     public Vector3 Velocity { get => _velocity; set => _velocity = value; }
@@ -19,7 +20,8 @@ public class MyRigidbody : MonoBehaviour
             _velocity += Physics.gravity * Time.fixedDeltaTime;
         }
 
-        transform.position += _velocity * Time.fixedDeltaTime;    
+        transform.position += _velocity * Time.fixedDeltaTime;
+        transform.Rotate(_angularVelocity * Time.fixedDeltaTime);
     }
 
 

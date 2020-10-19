@@ -9,8 +9,6 @@ public class MyCollider : MonoBehaviour
 
     public Vector3 Center { get => GetCenter(); set => SetCenter(value); }
 
-  
-
     public MyRigidbody Rigidbody { get; private set; }
 
     private void Awake()

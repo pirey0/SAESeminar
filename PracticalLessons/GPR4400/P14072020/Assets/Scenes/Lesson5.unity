@@ -172,6 +172,7 @@ MonoBehaviour:
   _useGravity: 1
   _mass: 1
   _velocity: {x: 0, y: 0, z: 0}
+  _angularVelocity: {x: 0, y: 0, z: 0}
 --- !u!23 &213644208
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -376,6 +377,7 @@ MonoBehaviour:
   _useGravity: 1
   _mass: 1
   _velocity: {x: 0, y: 0, z: 0}
+  _angularVelocity: {x: 0, y: 0, z: 0}
 --- !u!23 &548830453
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -488,6 +490,7 @@ MonoBehaviour:
   _useGravity: 1
   _mass: 1
   _velocity: {x: 0, y: 0, z: 0}
+  _angularVelocity: {x: 0, y: 0, z: 0}
 --- !u!23 &623471001
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -600,6 +603,7 @@ MonoBehaviour:
   _useGravity: 1
   _mass: 1
   _velocity: {x: 0, y: 0, z: 0}
+  _angularVelocity: {x: 90, y: 0, z: 0}
 --- !u!23 &919770056
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -839,6 +843,7 @@ MonoBehaviour:
   _useGravity: 1
   _mass: 1
   _velocity: {x: 0, y: 0, z: 0}
+  _angularVelocity: {x: 0, y: 0, z: 0}
 --- !u!23 &1610075608
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -994,6 +999,7 @@ MonoBehaviour:
   _useGravity: 1
   _mass: 1
   _velocity: {x: 0, y: 10, z: 0}
+  _angularVelocity: {x: 0, y: 0, z: 0}
 --- !u!23 &2127570058
 MeshRenderer:
   m_ObjectHideFlags: 0
