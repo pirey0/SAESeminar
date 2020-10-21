@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Asteroid : MonoBehaviour
+public class Asteroid : ScreenBoundObject
 {
     public float MaxRotationSpeed;
 
@@ -10,14 +10,16 @@ public class Asteroid : MonoBehaviour
 
     private float randomRotationSpeed;
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
         randomRotationSpeed = Random.Range(-1f, 1);
         velocity = Random.insideUnitCircle;
     }
 
-    private void Update()
+    protected override void Update()
     {
+        base.Update();
         transform.Rotate(0, 0, randomRotationSpeed * MaxRotationSpeed * Time.deltaTime);
         transform.position += velocity * Time.deltaTime;
 
