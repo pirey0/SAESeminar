@@ -7,6 +7,8 @@ public class Asteroid : ScreenBoundObject
     [SerializeField] private float _rotationMaxSpeed = 90;
     [SerializeField] private float _maximumMovmentSpeed = 1;
     [SerializeField] private Sprite[] _asteroidSprites;
+    [SerializeField] GameObject _smallerAsteroidPrefab;
+    [SerializeField] float _amountToSpawn;
 
 
     private float _randomRotationSpeed;
@@ -31,6 +33,18 @@ public class Asteroid : ScreenBoundObject
         base.Update();
         transform.eulerAngles += new Vector3(0, 0, Time.deltaTime * _randomRotationSpeed * _rotationMaxSpeed);
         transform.position += _randomMovementDirection * _maximumMovmentSpeed * Time.deltaTime;
+    }
+
+    public void Breakdown()
+    {
+        Destroy(gameObject);
+        if (_smallerAsteroidPrefab != null)
+        {
+            for (int i = 0; i < _amountToSpawn; i++)
+            {
+                Instantiate(_smallerAsteroidPrefab, transform.position, Quaternion.identity);
+            }
+        }
     }
 
 }

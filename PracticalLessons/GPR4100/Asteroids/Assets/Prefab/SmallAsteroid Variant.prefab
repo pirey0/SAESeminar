@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &982824243451190924
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 405222982697855939, guid: f2e6446c62b92a941a978c0bcdfb7374, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -302176372649705551, guid: 1bd6c74c058d5f143a391104c445e845, type: 3}
+    - target: {fileID: 593047209945373186, guid: f2e6446c62b92a941a978c0bcdfb7374, type: 3}
+      propertyPath: _asteroidSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: -302176372649705551, guid: 1bd6c74c058d5f143a391104c445e845, type: 3}
+    - target: {fileID: 593047209945373186, guid: f2e6446c62b92a941a978c0bcdfb7374, type: 3}
+      propertyPath: _asteroidSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: -3441887109491588236, guid: 1bd6c74c058d5f143a391104c445e845, type: 3}
+    - target: {fileID: 593047209945373186, guid: f2e6446c62b92a941a978c0bcdfb7374, type: 3}
+      propertyPath: _asteroidSprites.Array.data[2]
+      value: 
+      objectReference: {fileID: 7933256938379694660, guid: 1bd6c74c058d5f143a391104c445e845, type: 3}
+    - target: {fileID: 593047209945373186, guid: f2e6446c62b92a941a978c0bcdfb7374, type: 3}
+      propertyPath: _amountToSpawn
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 593047209945373186, guid: f2e6446c62b92a941a978c0bcdfb7374, type: 3}
+      propertyPath: _smallerAsteroidPrefab
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 593047209945373187, guid: f2e6446c62b92a941a978c0bcdfb7374, type: 3}
+      propertyPath: m_Name
+      value: SmallAsteroid Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 6936565952493343205, guid: f2e6446c62b92a941a978c0bcdfb7374, type: 3}
+      propertyPath: m_Radius
+      value: 0.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 9127274978330226084, guid: f2e6446c62b92a941a978c0bcdfb7374, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9127274978330226084, guid: f2e6446c62b92a941a978c0bcdfb7374, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9127274978330226084, guid: f2e6446c62b92a941a978c0bcdfb7374, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9127274978330226084, guid: f2e6446c62b92a941a978c0bcdfb7374, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9127274978330226084, guid: f2e6446c62b92a941a978c0bcdfb7374, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9127274978330226084, guid: f2e6446c62b92a941a978c0bcdfb7374, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9127274978330226084, guid: f2e6446c62b92a941a978c0bcdfb7374, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9127274978330226084, guid: f2e6446c62b92a941a978c0bcdfb7374, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9127274978330226084, guid: f2e6446c62b92a941a978c0bcdfb7374, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9127274978330226084, guid: f2e6446c62b92a941a978c0bcdfb7374, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9127274978330226084, guid: f2e6446c62b92a941a978c0bcdfb7374, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: f2e6446c62b92a941a978c0bcdfb7374, type: 3}
