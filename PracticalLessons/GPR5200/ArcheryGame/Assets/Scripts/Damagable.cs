@@ -17,5 +17,5 @@ public enum TakeDamageResult
 {
     Normal, 
     Destroy,
-    Blocked 
+    Stuck 
 }

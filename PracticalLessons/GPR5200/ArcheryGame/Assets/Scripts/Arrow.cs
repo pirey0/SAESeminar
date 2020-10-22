@@ -36,6 +36,13 @@ public class Arrow : MonoBehaviour
                 {
                     Destroy(gameObject);
                 }
+                else if(result == TakeDamageResult.Stuck)
+                {
+                    transform.parent = collision.transform;
+                    Destroy(this);
+                    Destroy(GetComponent<Rigidbody>());
+                    Destroy(GetComponent<Collider>());
+                }
             }
 
             IEffectedDamagable effectedDamagable = damagable as IEffectedDamagable;

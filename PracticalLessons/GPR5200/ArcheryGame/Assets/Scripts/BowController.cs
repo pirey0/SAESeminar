@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
 public class BowController : MonoBehaviour
@@ -12,13 +11,53 @@ public class BowController : MonoBehaviour
     [SerializeField] float maxDrawTime;
     [SerializeField] float drawMovementPerSecond;
 
+    [Header("Prediction")]
+    [SerializeField] LineRenderer predictionRenderer;
+    [SerializeField] int segments;
+    [SerializeField] float maxPredictionTime;
 
     float bowDrawTime = 0;
+
+    private void OnEnable()
+    {
+        Application.onBeforeRender += ArrowPredictionUpdate;
+    }
+
+    private void OnDisable()
+    {
+        Application.onBeforeRender -= ArrowPredictionUpdate;
+    }
 
     private void Update()
     {
         BowUpdate();
         ArrowPreviewUpdate();
+    }
+
+    private void ArrowPredictionUpdate()
+    {
+        if (bowDrawTime > minDrawTime)
+        {
+            if (predictionRenderer.positionCount != segments)
+                predictionRenderer.positionCount = segments;
+
+            Vector3[] positions = new Vector3[segments];
+            Vector3 p0 = GetArrowPositionAtDrawTime(bowDrawTime);
+            Vector3 v0 = GetArrowLaunchVelocity();
+
+            for (int i = 0; i < segments; i++)
+            {
+                Vector3 point = ProjectilePrediction.Predict(p0, v0, i * maxPredictionTime / segments);
+                positions[i] = point;
+            }
+
+            predictionRenderer.SetPositions(positions);
+        }
+        else
+        {
+            if(predictionRenderer.positionCount != 0)
+            predictionRenderer.positionCount = 0;
+        }
     }
 
     private void BowUpdate()
@@ -33,7 +72,7 @@ public class BowController : MonoBehaviour
         {
             if (bowDrawTime > 0)
             {
-                if(bowDrawTime > minDrawTime)
+                if (bowDrawTime > minDrawTime)
                 {
                     ShootArrow();
                 }
@@ -49,7 +88,7 @@ public class BowController : MonoBehaviour
 
         if (rigidbody)
         {
-            rigidbody.velocity = (Mathf.Min(maxDrawTime, bowDrawTime) * arrowVelocityPerDrawSecond * arrowSpawnTransform.forward);
+            rigidbody.velocity = GetArrowLaunchVelocity();
         }
     }
 
@@ -66,8 +105,28 @@ public class BowController : MonoBehaviour
         }
     }
 
+    private Vector3 GetArrowLaunchVelocity()
+    {
+        return (Mathf.Min(maxDrawTime, bowDrawTime) * arrowVelocityPerDrawSecond * arrowSpawnTransform.forward);
+    }
+
     private Vector3 GetArrowPositionAtDrawTime(float t)
     {
         return arrowSpawnTransform.position + arrowSpawnTransform.forward * (maxDrawTime - Mathf.Min(maxDrawTime, t)) * drawMovementPerSecond;
+    }
+
+
+}
+
+public static class ProjectilePrediction
+{
+    public static Vector3 Predict(Vector3 p0, Vector3 v0, float t, Vector3? g = null)
+    {
+        if (g == null)
+        {
+            g = Physics.gravity;
+        }
+
+        return 0.5f * g.Value * t * t + v0 * t + p0;
     }
 }

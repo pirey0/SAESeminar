@@ -12,6 +12,6 @@ public class TargetDummy : MonoBehaviour, IEffectedDamagable
     public TakeDamageResult TakeDamage(float damageAmount)
     {
         Debug.Log(name + " took " + damageAmount + " damage");
-        return TakeDamageResult.Normal;
+        return TakeDamageResult.Stuck;
     }
 }

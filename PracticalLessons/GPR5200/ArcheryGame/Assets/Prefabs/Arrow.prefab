@@ -183,4 +183,4 @@ MonoBehaviour:
     m_RotationOrder: 4
   effects:
   - OnFireParticles
-  lifeTime: 10
+  lifeTime: 60
