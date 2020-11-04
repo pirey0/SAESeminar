@@ -97,6 +97,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxRotationSpeed: 100
+  smallerAsteroid: {fileID: 5318562307386279919, guid: f864911e2a7d1ec4a83e7a50df5698e8, type: 3}
+  amountToSpawn: 4
   velocity: {x: 0, y: 0, z: 0}
 --- !u!58 &374737788897168969
 CircleCollider2D:
@@ -108,7 +110,7 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
