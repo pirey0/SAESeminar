@@ -7,13 +7,19 @@ public class SpaceshipController : ScreenBoundObject
     [SerializeField] float _thrusterForce;
     [SerializeField] float _rotationSpeed;
 
-    [Range(1,10)]
+    [Range(1, 10)]
     [SerializeField] float _maxSpeed;
 
     [SerializeField] Transform _bulletSpawn;
     [SerializeField] GameObject _bulletPrefab;
 
     [SerializeField] float _shootCooldown = 1;
+
+    [SerializeField] AudioSource _shootAudioSource, _thrusterAudioSource;
+    [SerializeField] float _thrusterSoundTransitionSpeed = 1;
+    [SerializeField] ParticleSystem _engineParticleSystem;
+    [SerializeField] float engineMaxEmission;
+
     Rigidbody2D rigidbody;
     float _lastBulletTimestamp;
 
@@ -31,9 +37,20 @@ public class SpaceshipController : ScreenBoundObject
         float horizontal = Input.GetAxis("Horizontal");
         float vertical = Input.GetAxis("Vertical");
 
+        ParticleSystem.EmissionModule emissionModule = _engineParticleSystem.emission;
+
         if (vertical > 0)
         {
             rigidbody.AddForce(transform.up * _thrusterForce * Time.deltaTime);
+            _thrusterAudioSource.volume = Mathf.Lerp(_thrusterAudioSource.volume, 1, Time.deltaTime * _thrusterSoundTransitionSpeed);
+            _thrusterAudioSource.volume = Mathf.Clamp01( _thrusterAudioSource.volume + Time.deltaTime * _thrusterSoundTransitionSpeed);
+            emissionModule.rateOverTimeMultiplier = engineMaxEmission;
+        }
+        else
+        {
+            _thrusterAudioSource.volume = Mathf.Lerp(_thrusterAudioSource.volume, 0, Time.deltaTime * _thrusterSoundTransitionSpeed);
+            //_thrusterAudioSource.volume = Mathf.Clamp01(_thrusterAudioSource.volume - Time.deltaTime * _thrusterSoundTransitionSpeed);
+            emissionModule.rateOverTimeMultiplier = 0;
         }
 
         //if higher then max speed, turn down
@@ -49,10 +66,21 @@ public class SpaceshipController : ScreenBoundObject
         bool shouldShoot = Input.GetButtonDown("Fire1");
         if (shouldShoot && CanShoot())
         {
-            Instantiate(_bulletPrefab, _bulletSpawn.position, transform.rotation);
-            _lastBulletTimestamp = Time.time;
+            Shoot();
         }
 
+    }
+
+    private void Shoot()
+    {
+        Instantiate(_bulletPrefab, _bulletSpawn.position, transform.rotation);
+        _lastBulletTimestamp = Time.time;
+
+        if (_shootAudioSource != null)
+            _shootAudioSource.Play();
+
+        //same as 
+        // _shootAudioSource?.Play();
     }
 
     private bool CanShoot()

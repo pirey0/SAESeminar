@@ -9,7 +9,7 @@ public class Asteroid : ScreenBoundObject
     [SerializeField] private Sprite[] _asteroidSprites;
     [SerializeField] GameObject _smallerAsteroidPrefab;
     [SerializeField] float _amountToSpawn;
-
+    [SerializeField] GameObject _breakdownPrefabToSpawn;
 
     private float _randomRotationSpeed;
     private Vector3 _randomMovementDirection;
@@ -38,6 +38,9 @@ public class Asteroid : ScreenBoundObject
     public void Breakdown()
     {
         Destroy(gameObject);
+
+        Instantiate(_breakdownPrefabToSpawn, transform.position, Quaternion.identity);
+
         if (_smallerAsteroidPrefab != null)
         {
             for (int i = 0; i < _amountToSpawn; i++)

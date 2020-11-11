@@ -259,6 +259,58 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 331331844, guid: 56104fbcf916e394d80a1520dc504ba3, type: 3}
+      propertyPath: ExternalForcesModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 331331844, guid: 56104fbcf916e394d80a1520dc504ba3, type: 3}
+      propertyPath: CollisionModule.enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 331331844, guid: 56104fbcf916e394d80a1520dc504ba3, type: 3}
+      propertyPath: CollisionModule.type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 331331844, guid: 56104fbcf916e394d80a1520dc504ba3, type: 3}
+      propertyPath: CollisionModule.collisionMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 331331844, guid: 56104fbcf916e394d80a1520dc504ba3, type: 3}
+      propertyPath: CollisionModule.m_Bounce.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 331331844, guid: 56104fbcf916e394d80a1520dc504ba3, type: 3}
+      propertyPath: CollisionModule.quality
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 331331844, guid: 56104fbcf916e394d80a1520dc504ba3, type: 3}
+      propertyPath: CollisionModule.colliderForce
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 331331844, guid: 56104fbcf916e394d80a1520dc504ba3, type: 3}
+      propertyPath: ColorModule.enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 331331844, guid: 56104fbcf916e394d80a1520dc504ba3, type: 3}
+      propertyPath: ColorModule.gradient.maxGradient.key1.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 331331844, guid: 56104fbcf916e394d80a1520dc504ba3, type: 3}
+      propertyPath: InitialModule.startLifetime.scalar
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1139265681, guid: 56104fbcf916e394d80a1520dc504ba3, type: 3}
+      propertyPath: rolloffMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1739550456, guid: 56104fbcf916e394d80a1520dc504ba3, type: 3}
+      propertyPath: MaxDistance
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1739550456, guid: 56104fbcf916e394d80a1520dc504ba3, type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9085218516970260485, guid: 56104fbcf916e394d80a1520dc504ba3, type: 3}
       propertyPath: m_Name
       value: SpaceShip
@@ -307,9 +359,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9085218516970260494, guid: 56104fbcf916e394d80a1520dc504ba3, type: 3}
-      propertyPath: _shootCooldown
-      value: 1
+    - target: {fileID: 9085218516970260491, guid: 56104fbcf916e394d80a1520dc504ba3, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9085218516970260491, guid: 56104fbcf916e394d80a1520dc504ba3, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9085218516970260491, guid: 56104fbcf916e394d80a1520dc504ba3, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.66
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 56104fbcf916e394d80a1520dc504ba3, type: 3}

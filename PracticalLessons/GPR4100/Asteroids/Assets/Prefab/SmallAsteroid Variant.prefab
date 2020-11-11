@@ -31,6 +31,10 @@ PrefabInstance:
       propertyPath: _smallerAsteroidPrefab
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 593047209945373186, guid: f2e6446c62b92a941a978c0bcdfb7374, type: 3}
+      propertyPath: _breakdownPrefabToSpawn
+      value: 
+      objectReference: {fileID: 782085393038642241, guid: 61d2dc32cfecbb14eb4e30949299c844, type: 3}
     - target: {fileID: 593047209945373187, guid: f2e6446c62b92a941a978c0bcdfb7374, type: 3}
       propertyPath: m_Name
       value: SmallAsteroid Variant

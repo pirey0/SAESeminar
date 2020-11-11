@@ -53,6 +53,7 @@ MonoBehaviour:
   - {fileID: -5855003014915806325, guid: 1bd6c74c058d5f143a391104c445e845, type: 3}
   _smallerAsteroidPrefab: {fileID: 593047209945373187, guid: f2e6446c62b92a941a978c0bcdfb7374, type: 3}
   _amountToSpawn: 3
+  _breakdownPrefabToSpawn: {fileID: 6699247569274430640, guid: 9e2e370252409464b925fcb066b8e535, type: 3}
 --- !u!212 &4780296376274362478
 SpriteRenderer:
   m_ObjectHideFlags: 0
