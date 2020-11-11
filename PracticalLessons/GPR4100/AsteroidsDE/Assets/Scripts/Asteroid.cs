@@ -6,7 +6,7 @@ public class Asteroid : ScreenBoundObject
 {
     public float MaxRotationSpeed;
 
-    [SerializeField] GameObject smallerAsteroid;
+    [SerializeField] GameObject smallerAsteroid, destructionEffectPrefab;
     [SerializeField] int amountToSpawn = 4;
 
     [SerializeField] private Vector3 velocity;
@@ -37,6 +37,8 @@ public class Asteroid : ScreenBoundObject
         {
             Destroy(gameObject);
             Destroy(bullet.gameObject);
+            Instantiate(destructionEffectPrefab, transform.position, transform.rotation);
+
             if (DestroyEvent != null)
                 DestroyEvent.Invoke();
 

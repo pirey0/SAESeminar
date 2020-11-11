@@ -59,6 +59,10 @@ PrefabInstance:
       propertyPath: smallerAsteroid
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5318562307386279906, guid: f864911e2a7d1ec4a83e7a50df5698e8, type: 3}
+      propertyPath: destructionEffectPrefab
+      value: 
+      objectReference: {fileID: 5840976906078780610, guid: 138af143c044c514491a98a825c38252, type: 3}
     - target: {fileID: 5318562307386279919, guid: f864911e2a7d1ec4a83e7a50df5698e8, type: 3}
       propertyPath: m_Name
       value: Asteroid_Small Variant
