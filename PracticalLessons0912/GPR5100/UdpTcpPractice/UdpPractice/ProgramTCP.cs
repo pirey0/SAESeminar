@@ -87,18 +87,27 @@ namespace UdpPractice
 
         private static void TCPClientRoutine()
         {
-            var tcpClient = new TcpClient(new IPEndPoint(IPAddress.Loopback, 0));
-            Console.WriteLine("Socket bound to: " + tcpClient.Client.LocalEndPoint.ToString());
+            var tcpClient = new TcpClient();
+            //Console.WriteLine("Socket bound to: " + tcpClient.Client.LocalEndPoint.ToString());
 
             Console.WriteLine("Write target address: ");
             string targetAddress = Console.ReadLine();
             var targetEndPoint = CreateIPEndPoint(targetAddress);
             Console.WriteLine("Endpoint set to: " + targetEndPoint.ToString());
-            tcpClient.Connect(targetEndPoint);
 
-            Task.Run(() => AsyncReceiveData(tcpClient));
-            Task.Run(() => AsyncSendData(tcpClient));
+            try
+            {
+                tcpClient.Connect(targetEndPoint);
 
+                Task.Run(() => AsyncReceiveData(tcpClient));
+                Task.Run(() => AsyncSendData(tcpClient));
+
+            }
+            catch (SocketException e)
+            {
+                Console.WriteLine("Error: " + e.SocketErrorCode + " " + (int)e.SocketErrorCode);
+                Console.WriteLine("Msg: " + e.Message);
+            }
             Thread.Sleep(100000);//Keep the thread alive
         }
 
