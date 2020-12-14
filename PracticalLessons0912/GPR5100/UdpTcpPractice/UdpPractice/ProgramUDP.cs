@@ -16,7 +16,7 @@ namespace UdpPractice
 
         public static void MainUDP(string[] args)
         {
-            udpClient = new UdpClient(new IPEndPoint(IPAddress.Loopback, 59777)); // 127.0.0.1
+            udpClient = new UdpClient(new IPEndPoint(IPAddress.Any, 0)); //Open a socket on an available port
             Console.WriteLine("Socket bound to: " + udpClient.Client.LocalEndPoint.ToString());
 
             Console.WriteLine("Write target address: ");
