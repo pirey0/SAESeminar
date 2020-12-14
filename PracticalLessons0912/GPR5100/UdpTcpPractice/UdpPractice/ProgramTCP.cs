@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Net.Sockets;
@@ -32,7 +33,7 @@ namespace UdpPractice
 
         private static void TCPServerRoutine()
         {
-            var server = new TcpListener(new IPEndPoint(IPAddress.Loopback, 62222));
+            var server = new TcpListener(new IPEndPoint(IPAddress.Any, 59777));
 
             Console.WriteLine("Server is at " + server.LocalEndpoint.ToString());
             server.Start();
@@ -43,6 +44,7 @@ namespace UdpPractice
 
                 TcpClient newClient = server.AcceptTcpClient(); //pauses thread untill client joins
                 Console.WriteLine("Connected to: " + newClient.Client.RemoteEndPoint);
+                Console.WriteLine("Local to: " + newClient.Client.LocalEndPoint);
 
                 Task.Run(() => AsyncReceiveData(newClient));
                 Task.Run(() => AsyncSendData(newClient));
@@ -74,7 +76,7 @@ namespace UdpPractice
             {
                 int bytesRead = await stream.ReadAsync(bytes, 0, bytes.Length);
 
-                if(bytesRead > 0)
+                if (bytesRead > 0)
                 {
                     string message = System.Text.Encoding.ASCII.GetString(bytes, 0, bytesRead);
 
@@ -88,26 +90,33 @@ namespace UdpPractice
             var tcpClient = new TcpClient(new IPEndPoint(IPAddress.Loopback, 0));
             Console.WriteLine("Socket bound to: " + tcpClient.Client.LocalEndPoint.ToString());
 
-            Console.WriteLine("Write target local port: ");
-            string targetPort = Console.ReadLine();
+            Console.WriteLine("Write target address: ");
+            string targetAddress = Console.ReadLine();
+            var targetEndPoint = CreateIPEndPoint(targetAddress);
+            Console.WriteLine("Endpoint set to: " + targetEndPoint.ToString());
+            tcpClient.Connect(targetEndPoint);
 
-            if (int.TryParse(targetPort, out int result))
-            {
-                var targetEndPoint = new IPEndPoint(IPAddress.Loopback, result);
-                Console.WriteLine("Endpoint set to: " + targetEndPoint.ToString());
-                tcpClient.Connect(targetEndPoint);
+            Task.Run(() => AsyncReceiveData(tcpClient));
+            Task.Run(() => AsyncSendData(tcpClient));
 
-                Task.Run(() => AsyncReceiveData(tcpClient));
-                Task.Run(() => AsyncSendData(tcpClient));
-
-                Thread.Sleep(100000);//Keep the thread alive
-            }
-            else
-            {
-                Console.WriteLine("Failed parsing port.");
-                Console.ReadLine();
-            }
+            Thread.Sleep(100000);//Keep the thread alive
         }
 
+        public static IPEndPoint CreateIPEndPoint(string endPoint)
+        {
+            string[] ep = endPoint.Split(':');
+            if (ep.Length != 2) throw new FormatException("Invalid endpoint format");
+            IPAddress ip;
+            if (!IPAddress.TryParse(ep[0], out ip))
+            {
+                throw new FormatException("Invalid ip-adress");
+            }
+            int port;
+            if (!int.TryParse(ep[1], NumberStyles.None, NumberFormatInfo.CurrentInfo, out port))
+            {
+                throw new FormatException("Invalid port");
+            }
+            return new IPEndPoint(ip, port);
+        }
     }
 }

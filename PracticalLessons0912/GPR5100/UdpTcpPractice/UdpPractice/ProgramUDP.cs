@@ -14,9 +14,9 @@ namespace UdpPractice
         static UdpClient udpClient;
         static IPEndPoint targetEndPoint;
 
-        public static void Main(string[] args)
+        public static void MainUDP(string[] args)
         {
-            udpClient = new UdpClient(new IPEndPoint(IPAddress.Loopback, 0)); // 127.0.0.1
+            udpClient = new UdpClient(new IPEndPoint(IPAddress.Loopback, 59777)); // 127.0.0.1
             Console.WriteLine("Socket bound to: " + udpClient.Client.LocalEndPoint.ToString());
 
             Console.WriteLine("Write target address: ");
@@ -36,6 +36,8 @@ namespace UdpPractice
                 var messageBinary = Encoding.ASCII.GetBytes(message);
                 udpClient.Send(messageBinary, messageBinary.Length, targetEndPoint);
             }
+
+            Console.ReadLine();
         }
 
         public static IPEndPoint CreateIPEndPoint(string endPoint)
@@ -63,8 +65,5 @@ namespace UdpPractice
                 Console.WriteLine(result.RemoteEndPoint.ToString() + ": " + Encoding.ASCII.GetString(result.Buffer));
             }
         }
-
-
-
     }
 }
