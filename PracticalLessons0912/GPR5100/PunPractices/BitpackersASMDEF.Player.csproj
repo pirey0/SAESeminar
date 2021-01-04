@@ -261,20 +261,20 @@
     <Reference Include="Photon3Unity3D">
       <HintPath>Assets\Photon\PhotonLibs\Photon3Unity3D.dll</HintPath>
     </Reference>
-    <Reference Include="QuatCompress">
-      <HintPath>Assets\Photon\PhotonUtilities\TransformCrusher\plugins\QuatCompress.dll</HintPath>
+    <Reference Include="websocket-sharp">
+      <HintPath>Assets\Photon\PhotonLibs\WebSocket\websocket-sharp.dll</HintPath>
     </Reference>
     <Reference Include="ByteConverter">
       <HintPath>Assets\Photon\PhotonUtilities\Compression\plugins\ByteConverter.dll</HintPath>
     </Reference>
-    <Reference Include="websocket-sharp">
-      <HintPath>Assets\Photon\PhotonLibs\WebSocket\websocket-sharp.dll</HintPath>
+    <Reference Include="FloatCrusher">
+      <HintPath>Assets\Photon\PhotonUtilities\TransformCrusher\plugins\FloatCrusher.dll</HintPath>
     </Reference>
     <Reference Include="HalFloat">
       <HintPath>Assets\Photon\PhotonUtilities\TransformCrusher\plugins\HalFloat.dll</HintPath>
     </Reference>
-    <Reference Include="FloatCrusher">
-      <HintPath>Assets\Photon\PhotonUtilities\TransformCrusher\plugins\FloatCrusher.dll</HintPath>
+    <Reference Include="QuatCompress">
+      <HintPath>Assets\Photon\PhotonUtilities\TransformCrusher\plugins\QuatCompress.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>C:\Program Files\Unity\Hub\Editor\2020.1.10f1\Editor\Data\NetStandard\ref\2.0.0\netstandard.dll</HintPath>
