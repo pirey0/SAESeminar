@@ -58,6 +58,11 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\PlayerMoveHandler.cs" />
     <Compile Include="Assets\Scripts\MovableObject.cs" />
+    <Compile Include="Assets\Scripts\Room.cs" />
+    <Compile Include="Assets\Scripts\RoomsManager.cs" />
+    <Compile Include="Assets\Scripts\RoomDestroyer.cs" />
+    <Compile Include="Assets\Scripts\VictoryChecker.cs" />
+    <Compile Include="Assets\Scripts\RoomObject.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

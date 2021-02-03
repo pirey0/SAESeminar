@@ -7,6 +7,8 @@ using UnityEngine;
 
 public class PlayerMoveHandler : MonoBehaviour
 {
+    [SerializeField] RoomsManager roomsManager;
+
     MovableObject currentObject;
     Camera camera;
 
@@ -50,6 +52,8 @@ public class PlayerMoveHandler : MonoBehaviour
     {
         if (currentObject != null)
         {
+            Room newRoom = roomsManager.GetRoomAt(currentObject.transform.position);
+            currentObject.ChangeRoomTo(newRoom);
             currentObject.Release();
             currentObject = null;
         }
@@ -66,8 +70,10 @@ public class PlayerMoveHandler : MonoBehaviour
             {
                 currentObject = movableObject;
                 currentObject.Pickup();
+                currentObject.RemoveFromRoom();
 
                 pickupPlane = new Plane(Vector3.forward, h.point);
+
                 break;
             }
         }
