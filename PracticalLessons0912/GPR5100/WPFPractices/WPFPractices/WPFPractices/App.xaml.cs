@@ -15,8 +15,14 @@ namespace WPFPractices
     {
         private void ApplicationStartup(object sender, StartupEventArgs e)
         {
-            MainWindow = new MainWindow();
+
+            var mainWindow = new MainWindow();
+
+            mainWindow.ParseCommandLineArguments(e.Args);
+
+            MainWindow = mainWindow;
             MainWindow.Show();
         }
+
     }
 }

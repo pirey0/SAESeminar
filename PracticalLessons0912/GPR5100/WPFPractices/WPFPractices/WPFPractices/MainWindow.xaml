@@ -11,18 +11,40 @@
 
     <DockPanel>
         <Menu DockPanel.Dock="Top">
-            <MenuItem Header="Hello"></MenuItem>
+            <MenuItem Header="File">
+                <MenuItem Header="Save As" Click = "OnSaveAsClicked" Command="Save"/>
+                <MenuItem Header="Load" Click = "OnLoadClicked" />
+            </MenuItem>
         </Menu>
-        <ItemsControl x:Name="todoItemsControl" ItemsSource="{Binding Todos}">
-            <ItemsControl.ItemTemplate>
-                <DataTemplate>
-                    <UniformGrid Columns="2" Margin="0,0,10,10">
-                        <TextBlock Text="{Binding Title}" />
-                        <ProgressBar Grid.Column="1" Minimum="0" Maximum="1" Value="{Binding Completion}" />
-                    </UniformGrid>
-                </DataTemplate>
-            </ItemsControl.ItemTemplate>
-        </ItemsControl>
-        
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="131*"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <ItemsControl Grid.Row="1" x:Name="todoItemsControl" ItemsSource="{Binding Todos, UpdateSourceTrigger=PropertyChanged}" Grid.ColumnSpan="2">
+                <ItemsControl.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="0,0,10,10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                                <ColumnDefinition Width="*"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock Text="{Binding Title}" />
+                            <ProgressBar Grid.Column="1" Minimum="0" Maximum="1" Value="{Binding Completion}" />
+                        </Grid>
+                    </DataTemplate>
+                </ItemsControl.ItemTemplate>
+            </ItemsControl>
+            <UniformGrid Columns="5" Grid.ColumnSpan="2">
+                <Button Content="Add" Click="OnAddButtonClicked"></Button>
+                <Button Content="Remove" Click="OnRemoveButtonClicked"></Button>
+            </UniformGrid>
+        </Grid>
+
+
     </DockPanel>
 </Window>
