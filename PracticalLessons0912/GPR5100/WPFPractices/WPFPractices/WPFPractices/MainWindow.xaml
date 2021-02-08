@@ -6,15 +6,23 @@
         xmlns:local="clr-namespace:WPFPractices"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
+        DataContext="{Binding RelativeSource={RelativeSource Self}}"
         >
 
     <DockPanel>
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="Hello"></MenuItem>
         </Menu>
-        <Grid>
-            
-        </Grid>
+        <ItemsControl x:Name="todoItemsControl" ItemsSource="{Binding Todos}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <UniformGrid Columns="2" Margin="0,0,10,10">
+                        <TextBlock Text="{Binding Title}" />
+                        <ProgressBar Grid.Column="1" Minimum="0" Maximum="1" Value="{Binding Completion}" />
+                    </UniformGrid>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
         
     </DockPanel>
 </Window>
