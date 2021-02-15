@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
         DataContext="{Binding RelativeSource={RelativeSource Self}}"
+        Closing="Window_Closing"
         >
 
     <DockPanel>
@@ -15,6 +16,7 @@
                 <MenuItem Header="Save As" Click = "OnSaveAsClicked" Command="Save"/>
                 <MenuItem Header="Load" Click = "OnLoadClicked" />
             </MenuItem>
+            <MenuItem Header="Config" Click="ConfigMenuItem_Click"></MenuItem>
         </Menu>
         <Grid>
             <Grid.ColumnDefinitions>
